@@ -10,6 +10,7 @@
     "Hjälp och support",
     "@fkui/tsconfig",
     "Konfiguration",
+    "CHANGELOG v5",
     "Chip",
     "chip",
     "Knapp",
@@ -40,7 +41,6 @@
     "FCalendarDay",
     "Bricka",
     "FBadge",
-    "CHANGELOG v5",
     "Validering och felhantering",
     "Längdvalidering",
     "Validator - anpassad",
@@ -67,12 +67,12 @@
     "På gång",
     "Nyheter",
     "Designsystemet",
-    "EventBus",
-    "EventBus",
     "Vue.js",
     "Om testverktyg",
     "Generella funktioner",
     "Jest",
+    "EventBus",
+    "EventBus",
     "focus-indicator() mixin",
     "Validation Plugin",
     "Translation Plugin",
@@ -215,6 +215,10 @@
     "openModal",
     "formModal() function",
     "confirmModal() function",
+    "ValidationErrorMessageBuilder: map() method",
+    "ValidationErrorMessageBuilder: mapCombined() method",
+    "ValidationErrorMessageBuilder: create() function",
+    "ValidationErrorMessageBuilder: build() method",
     "refIsVue",
     "refIsVueArray",
     "refIsHTMLElementArray",
@@ -232,10 +236,6 @@
     "findParentByName",
     "findHTMLElementFromVueRef",
     "findElementFromVueRef",
-    "ValidationErrorMessageBuilder: map() method",
-    "ValidationErrorMessageBuilder: mapCombined() method",
-    "ValidationErrorMessageBuilder: create() function",
-    "ValidationErrorMessageBuilder: build() method",
     "FProgressbarPageObject: FProgressbarPageObject() constructor",
     "FProgressbarPageObject: value() method",
     "FProgressbarPageObject: progressStatus() method",
@@ -252,6 +252,9 @@
     "FLabelPageObject: errorIcon() method",
     "FLabelPageObject: description() method",
     "FInteractiveTablePageObject: cell() method",
+    "FFileItemPageObject: FFileItemPageObject() constructor",
+    "FFileItemPageObject: typeOfFile() method",
+    "FFileItemPageObject: fileName() method",
     "FDetailsPanelPageObject: FDetailsPanelPageObject() constructor",
     "FDetailsPanelPageObject: header() method",
     "FDetailsPanelPageObject: footer() method",
@@ -261,9 +264,6 @@
     "FBadgePageObject: FBadgePageObject() constructor",
     "FFileItemPageObject: status() method",
     "FFileItemPageObject: inverted() method",
-    "FFileItemPageObject: FFileItemPageObject() constructor",
-    "FFileItemPageObject: typeOfFile() method",
-    "FFileItemPageObject: fileName() method",
     "CHANGELOG",
     "Bidra till designsystemet",
     "Automatisk testning"
@@ -317,6 +317,11 @@
     {
       "url": "functions/config.html",
       "title": "Konfiguration",
+      "terms": []
+    },
+    {
+      "url": "changelog/v5.html",
+      "title": "CHANGELOG v5",
       "terms": []
     },
     {
@@ -418,11 +423,6 @@
       "terms": [
         "FBadge"
       ]
-    },
-    {
-      "url": "changelog/v5.html",
-      "title": "CHANGELOG v5",
-      "terms": []
     },
     {
       "url": "guides/validation-and-error-handling/validation.html",
@@ -536,13 +536,6 @@
       "terms": []
     },
     {
-      "url": "functions/services/event-bus.html",
-      "title": "EventBus",
-      "terms": [
-        "EventBus"
-      ]
-    },
-    {
       "url": "functions/test-utils/vue.html",
       "title": "Vue.js",
       "terms": []
@@ -561,6 +554,13 @@
       "url": "functions/test-utils/jest.html",
       "title": "Jest",
       "terms": []
+    },
+    {
+      "url": "functions/services/event-bus.html",
+      "title": "EventBus",
+      "terms": [
+        "EventBus"
+      ]
     },
     {
       "url": "functions/sass/focus-indicator.html",
@@ -1090,6 +1090,26 @@
       "terms": []
     },
     {
+      "url": "functions/functions/ValidationErrorMessageBuilder/map.html",
+      "title": "ValidationErrorMessageBuilder: map() method",
+      "terms": []
+    },
+    {
+      "url": "functions/functions/ValidationErrorMessageBuilder/map-combined.html",
+      "title": "ValidationErrorMessageBuilder: mapCombined() method",
+      "terms": []
+    },
+    {
+      "url": "functions/functions/ValidationErrorMessageBuilder/create.html",
+      "title": "ValidationErrorMessageBuilder: create() function",
+      "terms": []
+    },
+    {
+      "url": "functions/functions/ValidationErrorMessageBuilder/build.html",
+      "title": "ValidationErrorMessageBuilder: build() method",
+      "terms": []
+    },
+    {
       "url": "functions/functions/dom-functions/ref-is-vue.html",
       "title": "refIsVue",
       "terms": []
@@ -1175,26 +1195,6 @@
       "terms": []
     },
     {
-      "url": "functions/functions/ValidationErrorMessageBuilder/map.html",
-      "title": "ValidationErrorMessageBuilder: map() method",
-      "terms": []
-    },
-    {
-      "url": "functions/functions/ValidationErrorMessageBuilder/map-combined.html",
-      "title": "ValidationErrorMessageBuilder: mapCombined() method",
-      "terms": []
-    },
-    {
-      "url": "functions/functions/ValidationErrorMessageBuilder/create.html",
-      "title": "ValidationErrorMessageBuilder: create() function",
-      "terms": []
-    },
-    {
-      "url": "functions/functions/ValidationErrorMessageBuilder/build.html",
-      "title": "ValidationErrorMessageBuilder: build() method",
-      "terms": []
-    },
-    {
       "url": "functions/cypress/pageobjects/FProgressbarPageObject/index.html",
       "title": "FProgressbarPageObject: FProgressbarPageObject() constructor",
       "terms": []
@@ -1275,6 +1275,21 @@
       "terms": []
     },
     {
+      "url": "functions/cypress/pageobjects/FFileItemPageObject/index.html",
+      "title": "FFileItemPageObject: FFileItemPageObject() constructor",
+      "terms": []
+    },
+    {
+      "url": "functions/cypress/pageobjects/FFileItemPageObject/typeoffile.html",
+      "title": "FFileItemPageObject: typeOfFile() method",
+      "terms": []
+    },
+    {
+      "url": "functions/cypress/pageobjects/FFileItemPageObject/filename.html",
+      "title": "FFileItemPageObject: fileName() method",
+      "terms": []
+    },
+    {
       "url": "functions/cypress/pageobjects/FDetailsPanelPageObject/index.html",
       "title": "FDetailsPanelPageObject: FDetailsPanelPageObject() constructor",
       "terms": []
@@ -1320,21 +1335,6 @@
       "terms": []
     },
     {
-      "url": "functions/cypress/pageobjects/FFileItemPageObject/index.html",
-      "title": "FFileItemPageObject: FFileItemPageObject() constructor",
-      "terms": []
-    },
-    {
-      "url": "functions/cypress/pageobjects/FFileItemPageObject/typeoffile.html",
-      "title": "FFileItemPageObject: typeOfFile() method",
-      "terms": []
-    },
-    {
-      "url": "functions/cypress/pageobjects/FFileItemPageObject/filename.html",
-      "title": "FFileItemPageObject: fileName() method",
-      "terms": []
-    },
-    {
       "url": "changelog.html",
       "title": "CHANGELOG",
       "terms": []
@@ -1362,35 +1362,35 @@
     "8": 8,
     "9": 9,
     "10": 10,
-    "11": 10,
+    "11": 11,
     "12": 11,
-    "13": 11,
+    "13": 12,
     "14": 12,
-    "15": 12,
-    "16": 12,
+    "15": 13,
+    "16": 13,
     "17": 13,
-    "18": 13,
+    "18": 14,
     "19": 14,
-    "20": 14,
+    "20": 15,
     "21": 15,
-    "22": 15,
+    "22": 16,
     "23": 16,
-    "24": 16,
+    "24": 17,
     "25": 17,
-    "26": 17,
+    "26": 18,
     "27": 18,
-    "28": 18,
+    "28": 19,
     "29": 19,
-    "30": 19,
+    "30": 20,
     "31": 20,
-    "32": 20,
+    "32": 21,
     "33": 21,
-    "34": 21,
+    "34": 22,
     "35": 22,
-    "36": 22,
-    "37": 22,
+    "36": 23,
+    "37": 23,
     "38": 23,
-    "39": 23,
+    "39": 24,
     "40": 24,
     "41": 25,
     "42": 26,
@@ -1419,10 +1419,10 @@
     "65": 44,
     "66": 45,
     "67": 46,
-    "68": 46,
-    "69": 47,
-    "70": 48,
-    "71": 49,
+    "68": 47,
+    "69": 48,
+    "70": 49,
+    "71": 50,
     "72": 50,
     "73": 51,
     "74": 52,
