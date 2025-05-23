@@ -3574,6 +3574,7 @@ input[type=search]:focus,
 }
 .file-item__file-name {
   margin-left: 0.25rem;
+  min-width: 0;
   overflow-wrap: break-word;
   white-space: normal;
 }
@@ -6132,6 +6133,7 @@ input[type=search]:focus,
 }
 .wizard-step .wizard-step__content {
   margin-left: 0.5rem;
+  min-width: 0;
   grid-area: wizard-step__content;
 }
 .wizard-step .wizard-step__line-up {
