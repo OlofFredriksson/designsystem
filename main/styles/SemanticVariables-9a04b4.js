@@ -107,6 +107,12 @@ var metadata_default = {
       "comment": null
     },
     {
+      "name": "--fkds-color-border-inverted",
+      "value": "#ffffff",
+      "palette": "white-100",
+      "comment": null
+    },
+    {
       "name": "--fkds-color-action-text-primary-default",
       "value": "#4a52b6",
       "palette": "bluebell-100",
@@ -612,15 +618,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       value: "F\xE4rgkod"
     }
   }, {
-    header: _withCtx(() => _cache[0] || (_cache[0] = [
+    header: _withCtx(() => [..._cache[0] || (_cache[0] = [
       _createElementVNode(
         "h2",
         { id: "semantiska_farger" },
         "Semantiska f\xE4rger",
         -1
-        /* HOISTED */
+        /* CACHED */
       )
-    ])),
+    ])]),
     default: _withCtx(({ sortFilterResult }) => [
       _createVNode($setup["FDataTable"], {
         rows: sortFilterResult,
