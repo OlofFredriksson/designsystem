@@ -1480,8 +1480,8 @@ var require_Set = __commonJS({
     "use strict";
     var getNative = require_getNative();
     var root = require_root();
-    var Set = getNative(root, "Set");
-    module.exports = Set;
+    var Set2 = getNative(root, "Set");
+    module.exports = Set2;
   }
 });
 
@@ -1503,7 +1503,7 @@ var require_getTag = __commonJS({
     var DataView = require_DataView();
     var Map2 = require_Map();
     var Promise2 = require_Promise();
-    var Set = require_Set();
+    var Set2 = require_Set();
     var WeakMap = require_WeakMap();
     var baseGetTag = require_baseGetTag();
     var toSource = require_toSource();
@@ -1516,10 +1516,10 @@ var require_getTag = __commonJS({
     var dataViewCtorString = toSource(DataView);
     var mapCtorString = toSource(Map2);
     var promiseCtorString = toSource(Promise2);
-    var setCtorString = toSource(Set);
+    var setCtorString = toSource(Set2);
     var weakMapCtorString = toSource(WeakMap);
     var getTag = baseGetTag;
-    if (DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag || Map2 && getTag(new Map2()) != mapTag || Promise2 && getTag(Promise2.resolve()) != promiseTag || Set && getTag(new Set()) != setTag || WeakMap && getTag(new WeakMap()) != weakMapTag) {
+    if (DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag || Map2 && getTag(new Map2()) != mapTag || Promise2 && getTag(Promise2.resolve()) != promiseTag || Set2 && getTag(new Set2()) != setTag || WeakMap && getTag(new WeakMap()) != weakMapTag) {
       getTag = function(value) {
         var result = baseGetTag(value), Ctor = result == objectTag ? value.constructor : void 0, ctorString = Ctor ? toSource(Ctor) : "";
         if (ctorString) {
@@ -1658,7 +1658,7 @@ function setup(options) {
 
 // virtual-entry:virtual:packages/vue/src/components/FCalendar/examples/FCalendarLiveExample.vue:FCalendarLiveExample-36fa07.js
 import { defineComponent as defineComponent24 } from "vue";
-import { FDate as FDate5 } from "@fkui/date";
+import { FDate as FDate4 } from "@fkui/date";
 import { FCalendar, FCalendarDay } from "@fkui/vue";
 import { LiveExample } from "@forsakringskassan/docs-live-example";
 
@@ -1758,7 +1758,9 @@ function $emit(type, ...args) {
   eventTarget().dispatchEvent(event);
 }
 function $on(type, callback) {
-  fn.set(callback, (event) => callback(...event.detail));
+  fn.set(callback, (event) => {
+    callback(...event.detail);
+  });
   eventTarget().addEventListener(type, fn.get(callback));
 }
 function $off(type, callback) {
@@ -2852,7 +2854,7 @@ function focusError(item) {
   }
   const focusElement3 = document.querySelector(`#${item.focusElementId}`);
   scrollTo(element, window.innerHeight * 0.25);
-  focus3(focusElement3 ? focusElement3 : element);
+  focus3(focusElement3 ?? element);
 }
 
 // sfc-script:/home/runner/work/designsystem/designsystem/packages/vue/src/components/FErrorList/FErrorList.vue?type=script
@@ -3438,7 +3440,7 @@ var FFormModal_default = defineComponent11({
      */
     value: {
       type: Object,
-      default: function() {
+      default() {
         return {};
       }
     },
@@ -3513,23 +3515,29 @@ var FFormModal_default = defineComponent11({
       ]
     }
   },
-  emits: [
+  emits: {
     /**
      * Event that is dispatched when escape is pressed or when the cancel or close buttons are clicked.
      * In most use cases the isOpen prop should be set to false when this event is triggered.
      */
-    "cancel",
+    cancel() {
+      return true;
+    },
     /**
      * Event that is dispatched when escape is pressed or when the cancel or close buttons are clicked.
      * In most use cases the isOpen prop should be set to false when this event is triggered.
      */
-    "close",
+    close(_payload) {
+      return true;
+    },
     /**
      * Event that is dispatched when the submit button is is clicked.
      * The event payload is the data that has been submitted.
      */
-    "submit"
-  ],
+    submit(_payload) {
+      return true;
+    }
+  },
   data() {
     return {};
   },
@@ -3544,7 +3552,7 @@ var FFormModal_default = defineComponent11({
       this.$emit("cancel");
       this.$emit("close", { reason: "close" });
     },
-    async onSubmit() {
+    onSubmit() {
       ValidationService3.resetState(this.$el);
       this.$emit("submit", { data: this.value });
       this.$emit("close", { reason: "submit", data: this.value });
@@ -3806,6 +3814,9 @@ function getAbsolutePosition(src) {
     height: Math.floor(rect.height)
   };
 }
+
+// packages/vue/src/utils/internal-key.ts
+var internalKey = Symbol("internal-key");
 
 // sfc-script:/home/runner/work/designsystem/designsystem/packages/vue/src/components/FFieldset/FFieldset.vue?type=script
 import { defineComponent as defineComponent22, provide, useSlots as useSlots3, useTemplateRef as useTemplateRef4 } from "vue";
@@ -4587,7 +4598,7 @@ var IPopupError_default = defineComponent14({
       this.$emit("close");
     },
     setArrowOffset() {
-      const wrapper = this.$refs["wrapper"];
+      const wrapper = this.$refs.wrapper;
       const inputIcon = this.anchor?.nextElementSibling;
       if (!inputIcon || !wrapper) {
         return;
@@ -4604,7 +4615,7 @@ var IPopupError_default = defineComponent14({
         return;
       }
       await this.$nextTick();
-      const wrapper = this.$refs["wrapper"];
+      const wrapper = this.$refs.wrapper;
       if (!this.anchor) {
         throw new Error("No anchor element found");
       }
@@ -4623,10 +4634,10 @@ var IPopupError_default = defineComponent14({
         this.teleportDisabled = false;
         wrapper.style.left = `${result.x}px`;
         wrapper.style.top = `${result.y}px`;
-        await this.setArrowOffset();
+        this.setArrowOffset();
         return;
       }
-      await this.setArrowOffset();
+      this.setArrowOffset();
       this.teleportDisabled = true;
       wrapper.style.removeProperty("left");
       wrapper.style.removeProperty("top");
@@ -5132,7 +5143,7 @@ var IPopupMenu_default = defineComponent15({
   watch: {
     isOpen: {
       immediate: true,
-      async handler(newVal) {
+      handler(newVal) {
         if (newVal) {
           return;
         }
@@ -5646,7 +5657,7 @@ ISkipLink_default.render = render18;
 ISkipLink_default.__file = "packages/vue/src/internal-components/ISkipLink/ISkipLink.vue";
 
 // sfc-script:/home/runner/work/designsystem/designsystem/packages/vue/src/internal-components/calendar/ICalendarMonth.vue?type=script
-import { FDate as FDate4 } from "@fkui/date";
+import { FDate as FDate3 } from "@fkui/date";
 import { alertScreenReader, focus as focus7 } from "@fkui/logic";
 import { defineComponent as defineComponent19 } from "vue";
 
@@ -6090,7 +6101,7 @@ var ICalendarMonth_default = defineComponent19({
       let activeDate = void 0;
       if (document.activeElement instanceof HTMLElement) {
         const activeString = document.activeElement.dataset.date;
-        activeDate = activeString ? FDate4.fromIso(activeString) : void 0;
+        activeDate = activeString ? FDate3.fromIso(activeString) : void 0;
       }
       return getDayTabindex(date, activeDate, this.tabDate);
     }
@@ -6630,8 +6641,12 @@ function useHorizontalOffset(options) {
   const offset2 = ref4(0);
   watch2(() => elementRef.value, updateOffset);
   watch2(() => parentRef, updateOffset);
-  onMounted4(() => window.addEventListener("resize", updateOffset));
-  onUnmounted3(() => window.removeEventListener("resize", updateOffset));
+  onMounted4(() => {
+    window.addEventListener("resize", updateOffset);
+  });
+  onUnmounted3(() => {
+    window.removeEventListener("resize", updateOffset);
+  });
   return readonly(offset2);
   function updateOffset() {
     const element = elementRef.value;
@@ -7453,7 +7468,7 @@ var FCheckboxField_default = defineComponent23({
   },
   methods: {
     updateExpandedFlag() {
-      const checkboxInput = getHTMLElementFromVueRef(this.$refs["checkboxInput"]);
+      const checkboxInput = getHTMLElementFromVueRef(this.$refs.checkboxInput);
       this.expanded = checkboxInput.checked;
     },
     emitVModelEvent(event) {
@@ -7632,9 +7647,9 @@ var exampleComponent = defineComponent24({
   computed: {
     livedata() {
       return {
-        month: FDate5.fromIso("2022-10-01"),
-        min: FDate5.fromIso("2020-01-01"),
-        max: FDate5.fromIso("2029-01-30")
+        month: FDate4.fromIso("2022-10-01"),
+        min: FDate4.fromIso("2020-01-01"),
+        max: FDate4.fromIso("2029-01-30")
       };
     },
     components() {
