@@ -264,7 +264,7 @@
   --fkds-color-select-background-secondary-hover: #dbe9e2;
   --fkds-color-select-background-secondary-active: #dbe9e2;
   --fkds-color-select-background-secondary-focus: #dbe9e2;
-  --fkui-theme-default-version: "6.24.1";
+  --fkui-theme-default-version: "6.26.0";
 }
 
 *,
@@ -4456,12 +4456,12 @@ input[type=search]:focus,
 }
 .modal__header {
   display: flex;
-  font-size: var(--f-font-size-h4);
   margin-bottom: 0.5rem;
   width: 100%;
 }
 .modal__header .modal__title {
   font-size: var(--f-modal-title-font-size);
+  font-weight: var(--f-font-weight-bold);
   margin-bottom: 0;
   margin-top: 0;
   color: var(--fkds-color-text-primary);
@@ -5231,6 +5231,12 @@ input[type=search]:focus,
   background: transparent;
   color: var(--fkds-color-text-secondary);
   font-weight: var(--f-font-weight-normal);
+}
+.table__column__wrapper {
+  pointer-events: none;
+}
+.table__column__wrapper > * {
+  pointer-events: auto;
 }
 .table--selectable .table__row td:hover,
 .table--selectable .table__row th:hover {

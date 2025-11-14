@@ -1,4 +1,4 @@
-// ../date/lib/esm/index.js
+// packages/date/lib/esm/index.js
 function getDefaultExportFromCjs(x) {
   return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
 }
@@ -8,7 +8,7 @@ var hasRequiredDayjs_min;
 function requireDayjs_min() {
   if (hasRequiredDayjs_min) return dayjs_min$1.exports;
   hasRequiredDayjs_min = 1;
-  (function(module, exports) {
+  (function(module, exports$1) {
     !(function(t, e) {
       module.exports = e();
     })(dayjs_min, (function() {
@@ -293,7 +293,7 @@ var hasRequiredSv;
 function requireSv() {
   if (hasRequiredSv) return sv$1.exports;
   hasRequiredSv = 1;
-  (function(module, exports) {
+  (function(module, exports$1) {
     !(function(e, t) {
       module.exports = t(requireDayjs_min());
     })(sv, (function(e) {
@@ -316,7 +316,7 @@ var hasRequiredWeekOfYear;
 function requireWeekOfYear() {
   if (hasRequiredWeekOfYear) return weekOfYear$2.exports;
   hasRequiredWeekOfYear = 1;
-  (function(module, exports) {
+  (function(module, exports$1) {
     !(function(e, t) {
       module.exports = t();
     })(weekOfYear$1, (function() {
